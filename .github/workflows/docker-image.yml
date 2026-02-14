@@ -1,4 +1,4 @@
-## Workflow for Amazon clone docker image
+## Workflow for Amazon clone docker image Build and Push
 
 name: Docker Image CI
 
@@ -22,6 +22,11 @@ jobs:
         docker build . \
           --file Docker/Dockerfile \
           --tag ${{ secrets.DOCKER_USERNAME }}/amazon-clone:latest
+  push:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
 
     - name: Push Docker image
       run: |
