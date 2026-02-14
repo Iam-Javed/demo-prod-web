@@ -24,7 +24,7 @@ jobs:
           --tag ${{ secrets.DOCKER_USERNAME }}/amazon-clone:latest
   push:
     runs-on: ubuntu-latest
-    
+    needs: build
     steps:
     - uses: actions/checkout@v4
 
